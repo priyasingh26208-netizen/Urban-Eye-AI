@@ -143,7 +143,7 @@ export default function ReportDetail({ reportId, admin = false, onUpdated, hideH
     // Generate auto-named filename
     const timestamp = new Date().toISOString().split('T')[0];
     const reportNum = report.report_number || `CL-${report.id}`;
-    const filename = `CivicLens_Report_${reportNum}_${timestamp}`;
+    const filename = `UrbanEyeAI_Report_${reportNum}_${timestamp}`;
 
     // OLD IMPLEMENTATION - Generate comprehensive PDF with audit trail
     const printWindow = window.open('', '_blank');
@@ -193,7 +193,7 @@ export default function ReportDetail({ reportId, admin = false, onUpdated, hideH
         </head>
         <body>
           <div class="header">
-            <h1>CivicLens Report</h1>
+            <h1>UrbanEye AI Report</h1>
             <div class="subtitle">Report #${reportNum}</div>
             <div class="meta">Generated on ${new Date().toLocaleString('en-US', { dateStyle: 'full', timeStyle: 'short' })}</div>
           </div>
@@ -362,8 +362,8 @@ export default function ReportDetail({ reportId, admin = false, onUpdated, hideH
           </div>
           
           <div class="footer">
-            <p><strong>CivicLens - Government Complaint Management System</strong></p>
-            <p>This is an official report generated from the CivicLens platform</p>
+            <p><strong>UrbanEye AI - Government Complaint Management System</strong></p>
+            <p>This is an official report generated from the UrbanEye AI platform</p>
             <p>Document: ${filename}.pdf</p>
           </div>
           

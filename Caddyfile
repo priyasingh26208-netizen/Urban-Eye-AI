@@ -1,40 +1,17 @@
-# ============================================================
-# CivicLens — Final Production Proxy (Domain & SSL)
-# ============================================================
+:80 {
+    @api path /api/v1/*
+    handle @api {
+        reverse_proxy civiclens-backend:8000
+    }
 
-{
-	email admin@civiclens.space
+    @health path /health /health/*
+    handle @health {
+        reverse_proxy civiclens-backend:8000
+    }
+
+    handle {
+        reverse_proxy civiclens-client:80
+    }
+
+    encode gzip
 }
-
-# Explicitly use HTTPS for the domains
-https://civiclens.space, https://www.civiclens.space {
-	reverse_proxy civiclens-client:80
-	encode gzip
-}
-
-https://admin.civiclens.space {
-	reverse_proxy civiclens-admin:3000
-	encode gzip
-}
-
-https://api.civiclens.space {
-	# MinIO media proxy
-	@media path /civiclens-media/*
-	handle @media {
-		reverse_proxy civiclens-minio:9000
-	}
-
-	# API Health (root level)
-	@health path /health /health/*
-	handle @health {
-		reverse_proxy civiclens-backend:8000
-	}
-
-	# All other API requests
-	handle {
-		reverse_proxy civiclens-backend:8000
-	}
-
-	encode gzip
-}
-import sites/*

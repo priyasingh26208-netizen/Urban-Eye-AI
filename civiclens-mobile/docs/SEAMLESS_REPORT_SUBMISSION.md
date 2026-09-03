@@ -1,7 +1,7 @@
 # Seamless Report Submission - Production Ready
 
 ## Overview
-The report submission flow has been redesigned to be the **major USP** of the CivicLens app - making civic issue reporting incredibly seamless and user-friendly.
+The report submission flow has been redesigned to be the **major USP** of the UrbanEye AI app - making civic issue reporting incredibly seamless and user-friendly.
 
 ## Key Features
 

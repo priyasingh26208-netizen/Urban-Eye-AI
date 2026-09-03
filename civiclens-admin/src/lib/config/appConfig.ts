@@ -11,7 +11,7 @@
 
 export const APP_CONFIG = {
     /** Platform name shown in UI, PDFs, emails */
-    appName: process.env.NEXT_PUBLIC_APP_NAME || 'CivicLens',
+    appName: process.env.NEXT_PUBLIC_APP_NAME || 'UrbanEye AI',
 
     /** App version */
     appVersion: process.env.NEXT_PUBLIC_APP_VERSION || '1.0.0',

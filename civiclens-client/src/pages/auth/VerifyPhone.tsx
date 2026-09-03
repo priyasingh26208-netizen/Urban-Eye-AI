@@ -90,7 +90,7 @@ const VerifyPhone = () => {
             <p className="text-muted-foreground">
               {isSuccess 
                 ? "Your account is now fully active. Redirecting you to dashboard..." 
-                : "Verify your mobile number to access all CivicLens features."
+                : "Verify your mobile number to access all UrbanEye AI features."
               }
             </p>
           </div>

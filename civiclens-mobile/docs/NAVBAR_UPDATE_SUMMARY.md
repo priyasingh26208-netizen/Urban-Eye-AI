@@ -2,7 +2,7 @@
 
 ## What Was Done
 
-Created a reusable `TopNavbar` component and applied it across multiple screens to ensure UI consistency throughout the CivicLens mobile app.
+Created a reusable `TopNavbar` component and applied it across multiple screens to ensure UI consistency throughout the UrbanEye AI mobile app.
 
 ## Files Created
 

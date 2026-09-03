@@ -5,7 +5,7 @@ import { getAllDashboardData } from '@/lib/server/dashboard-data';
 // Add metadata for SEO
 export const metadata: Metadata = {
   title: 'Dashboard',
-  description: 'CivicLens Admin Dashboard - Monitor and manage civic issues efficiently',
+  description: 'UrbanEye AI Admin Dashboard - Monitor and manage civic issues efficiently',
 };
 
 // Enable caching and revalidation

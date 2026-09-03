@@ -146,4 +146,4 @@ import { getBottomTabPadding } from '@shared/utils/screenPadding';
 const customPadding = getBottomTabPadding(insets, 150); // 150px extra
 ```
 
-This solution ensures a consistent, professional user experience across all screens in the CivicLens mobile app.
+This solution ensures a consistent, professional user experience across all screens in the UrbanEye AI mobile app.

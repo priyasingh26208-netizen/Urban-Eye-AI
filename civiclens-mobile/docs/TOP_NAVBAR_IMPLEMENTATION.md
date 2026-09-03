@@ -1,7 +1,7 @@
 # Top Navbar Component - Implementation Guide
 
 ## Overview
-Created a reusable `TopNavbar` component that provides consistent navigation UI across all screens in the CivicLens mobile app. The navbar matches the dashboard design with a blue gradient background and dynamic content support.
+Created a reusable `TopNavbar` component that provides consistent navigation UI across all screens in the UrbanEye AI mobile app. The navbar matches the dashboard design with a blue gradient background and dynamic content support.
 
 ## Component Location
 `src/shared/components/TopNavbar.tsx`

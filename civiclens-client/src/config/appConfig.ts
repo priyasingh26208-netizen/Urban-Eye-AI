@@ -1,5 +1,5 @@
 /**
- * Centralized Application Configuration for CivicLens Web Portal
+ * Centralized Application Configuration for UrbanEye AI Web Portal
  * 
  * All branding, organization-specific values, and deployment-configurable
  * strings are defined here. Components should import from this file
@@ -10,7 +10,7 @@
 
 export const APP_CONFIG = {
     /** Platform name shown in UI */
-    appName: import.meta.env.VITE_APP_NAME || 'CivicLens',
+    appName: import.meta.env.VITE_APP_NAME || 'UrbanEye AI',
 
     /** Full organization name */
     orgName: import.meta.env.VITE_ORG_NAME || 'Municipal Corporation',

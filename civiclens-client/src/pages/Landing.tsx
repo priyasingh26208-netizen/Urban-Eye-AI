@@ -128,7 +128,7 @@ const Landing = () => {
                 </div>
                 <div>
                   <h1 className="text-lg font-bold text-foreground tracking-tight">{APP_CONFIG.appName}</h1>
-                  <p className="text-[11px] text-muted-foreground font-medium leading-none">Report &middot; Track &middot; Resolve</p>
+                  <p className="text-[11px] text-muted-foreground font-medium leading-none">Detect &middot; Track &middot; Resolve</p>
                 </div>
               </div>
 
@@ -180,8 +180,9 @@ const Landing = () => {
               </h2>
 
               <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
-                Citizens report civic issues instantly. Officers manage and resolve them efficiently.
-                Together, we build better communities — transparently and accountably.
+                AI-powered civic intelligence that detects issues through citizen reports,
+  CCTV feeds, and satellite imagery — helping authorities respond faster,
+  smarter, and more efficiently.
               </p>
 
               {/* Dual CTA */}
@@ -217,9 +218,9 @@ const Landing = () => {
         <section className="bg-muted/40 border-y">
           <div className="container mx-auto px-4 py-16 md:py-20">
             <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">How It Works</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3"> How UrbanEyeAI Works</h3>
               <p className="text-muted-foreground max-w-xl mx-auto">
-                A simple, transparent workflow connecting citizens and officers for faster resolution.
+                From AI-powered detection to department routing and resolution verification, UrbanEyeAI makes civic monitoring smarter and faster.
               </p>
             </div>
 
@@ -228,30 +229,30 @@ const Landing = () => {
                 {
                   icon: <Send className="w-6 h-6" />,
                   step: "01",
-                  title: "Report Issue",
-                  desc: "Citizens submit a report with photos, location, and description.",
-                  color: "text-blue-600 bg-blue-100",
+                   title: "Multi-Source Detection",
+                   desc: "Issues are detected through citizen reports, CCTV feeds, and satellite imagery.",
+                   color: "text-blue-600 bg-blue-100",
                 },
                 {
                   icon: <Zap className="w-6 h-6" />,
                   step: "02",
-                  title: "AI Classification",
-                  desc: "Our AI system auto-classifies the issue and routes it to the right department.",
-                  color: "text-purple-600 bg-purple-100",
+                  title: "AI Detection & Classification",
+  desc: "AI identifies the issue, classifies its type, estimates severity, and determines its priority.",
+  color: "text-purple-600 bg-purple-100",
                 },
                 {
                   icon: <Shield className="w-6 h-6" />,
                   step: "03",
-                  title: "Officer Action",
-                  desc: "Assigned officers take action, update progress, and upload resolution proof.",
-                  color: "text-emerald-600 bg-emerald-100",
+                  title: "Smart Routing & Action",
+  desc: "High-priority issues are automatically routed to the responsible department and assigned officers.",
+  color: "text-emerald-600 bg-emerald-100",
                 },
                 {
                   icon: <CheckCircle2 className="w-6 h-6" />,
                   step: "04",
-                  title: "Resolved",
-                  desc: "Citizens get notified, verify the resolution, and track everything in real-time.",
-                  color: "text-amber-600 bg-amber-100",
+                  title: "AI Resolution Verification",
+  desc: "AI compares before-and-after evidence to verify that the reported issue has actually been resolved.",
+  color: "text-amber-600 bg-amber-100",
                 },
               ].map((item, idx) => (
                 <div key={idx} className="relative group">
@@ -363,79 +364,138 @@ const Landing = () => {
           </div>
         </section>
 
-        {/* ─── Platform Statistics ─────────────────────────────── */}
-        <section ref={statsRef} className="bg-gradient-to-br from-foreground to-foreground/90 text-primary-foreground">
-          <div className="container mx-auto px-4 py-16 md:py-20">
-            <div className="text-center mb-12">
-              <h3 className="text-2xl md:text-3xl font-bold mb-3">Platform Impact</h3>
-              <p className="text-primary-foreground/70 max-w-xl mx-auto">
-                Real-time metrics showcasing the difference we're making together.
-              </p>
-            </div>
+{/* ─── Platform Statistics ─────────────────────────────── */}
+<section
+  ref={statsRef}
+  className="bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 text-foreground border-y"
+>
+  <div className="container mx-auto px-4 py-16 md:py-20">
 
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
-              {[
-                {
-                  icon: <FileText className="w-6 h-6" />,
-                  value: statsLoading ? null : stats ? formatNumber(animatedTotal) : null,
-                  label: "Total Reports",
-                  accent: "from-blue-400 to-blue-600",
-                },
-                {
-                  icon: <CheckCircle2 className="w-6 h-6" />,
-                  value: statsLoading ? null : stats ? formatNumber(animatedResolved) : null,
-                  label: "Issues Resolved",
-                  accent: "from-emerald-400 to-emerald-600",
-                },
-                {
-                  icon: <Shield className="w-6 h-6" />,
-                  value: statsLoading ? null : stats ? formatNumber(animatedOfficers) : null,
-                  label: "Active Officers",
-                  accent: "from-purple-400 to-purple-600",
-                },
-                {
-                  icon: <Clock className="w-6 h-6" />,
-                  value: statsLoading ? null : stats ? `${stats.avg_resolution_days.toFixed(1)}` : null,
-                  suffix: "days",
-                  label: "Avg. Resolution",
-                  accent: "from-amber-400 to-amber-600",
-                },
-              ].map((stat, idx) => (
-                <div key={idx} className="text-center group">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${stat.accent} flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform`}>
-                    {stat.icon}
-                  </div>
-                  <div className="text-3xl md:text-4xl font-extrabold mb-1 tabular-nums">
-                    {statsLoading ? (
-                      <span className="inline-block animate-pulse bg-primary-foreground/20 rounded h-8 w-16" />
-                    ) : stat.value !== null ? (
-                      <>
-                        {stat.value}
-                        {(stat as any).suffix && <span className="text-base font-semibold text-primary-foreground/60 ml-1">{(stat as any).suffix}</span>}
-                      </>
-                    ) : (
-                      <span className="text-primary-foreground/40 text-xl">—</span>
-                    )}
-                  </div>
-                  <div className="text-sm font-medium text-primary-foreground/60">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+    {/* Section Heading */}
+    <div className="text-center mb-12">
+      <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">
+        Platform Impact
+      </h3>
 
-            {!stats && !statsLoading && (
-              <div className="text-center mt-6">
-                <p className="text-sm text-primary-foreground/50">Statistics are currently being updated.</p>
-              </div>
+      <p className="text-muted-foreground max-w-xl mx-auto">
+        Real-time metrics showcasing the difference we're making together.
+      </p>
+    </div>
+
+    {/* Statistics Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-4xl mx-auto">
+      {[
+        {
+          icon: <FileText className="w-6 h-6" />,
+          value: statsLoading
+            ? null
+            : stats
+              ? formatNumber(animatedTotal)
+              : null,
+          label: "Total Reports",
+          accent: "from-green-400 to-green-600",
+        },
+        {
+          icon: <CheckCircle2 className="w-6 h-6" />,
+          value: statsLoading
+            ? null
+            : stats
+              ? formatNumber(animatedResolved)
+              : null,
+          label: "Issues Resolved",
+          accent: "from-emerald-400 to-emerald-600",
+        },
+        {
+          icon: <Shield className="w-6 h-6" />,
+          value: statsLoading
+            ? null
+            : stats
+              ? formatNumber(animatedOfficers)
+              : null,
+          label: "Active Officers",
+          accent: "from-teal-400 to-teal-600",
+        },
+        {
+          icon: <Clock className="w-6 h-6" />,
+          value: statsLoading
+            ? null
+            : stats
+              ? `${stats.avg_resolution_days.toFixed(1)}`
+              : null,
+          suffix: "days",
+          label: "Avg. Resolution",
+          accent: "from-lime-400 to-lime-600",
+        },
+      ].map((stat, idx) => (
+        <div
+          key={idx}
+          className="text-center group"
+        >
+          {/* Icon */}
+          <div
+            className={`
+              w-14 h-14
+              rounded-2xl
+              bg-gradient-to-br ${stat.accent}
+              flex items-center justify-center
+              mx-auto mb-4
+              shadow-md
+              shadow-green-900/10
+              group-hover:scale-110
+              transition-transform duration-300
+              text-white
+            `}
+          >
+            {stat.icon}
+          </div>
+
+          {/* Number */}
+          <div className="text-3xl md:text-4xl font-extrabold text-foreground mb-1 tabular-nums">
+            {statsLoading ? (
+              <span className="inline-block animate-pulse bg-green-900/10 rounded h-8 w-16" />
+            ) : stat.value !== null ? (
+              <>
+                {stat.value}
+
+                {(stat as any).suffix && (
+                  <span className="text-base font-semibold text-muted-foreground ml-2">
+                    {(stat as any).suffix}
+                  </span>
+                )}
+              </>
+            ) : (
+              <span className="text-muted-foreground text-xl">
+                —
+              </span>
             )}
           </div>
-        </section>
+
+          {/* Label */}
+          <div className="text-sm font-medium text-muted-foreground">
+            {stat.label}
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* No Statistics Message */}
+    {!stats && !statsLoading && (
+      <div className="text-center mt-8">
+        <p className="text-sm text-emerald-600/80">
+          Statistics are currently being updated.
+        </p>
+      </div>
+    )}
+
+  </div>
+</section>
 
         {/* ─── Key Features ───────────────────────────────────── */}
         <section className="container mx-auto px-4 py-16 md:py-20">
           <div className="text-center mb-12">
-            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3">Why {APP_CONFIG.appName}?</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-3"> Intelligent Urban Monitoring</h3>
             <p className="text-muted-foreground max-w-xl mx-auto">
-              Built for transparency, efficiency, and real impact.
+              AI-powered technology for smarter, faster, and more proactive civic issue detection and resolution.
             </p>
           </div>
 
@@ -443,39 +503,39 @@ const Landing = () => {
             {[
               {
                 icon: <Eye className="w-5 h-5" />,
-                title: "Full Transparency",
-                desc: "Every report is tracked from submission to resolution. Citizens can see exactly what's happening.",
-                color: "text-blue-600 bg-blue-100",
+                 title: "Satellite Image Analysis",
+                desc: "AI analyzes satellite imagery to detect damaged roads, waterlogging, and infrastructure degradation—even when no citizen report exists.",
+               color: "text-blue-600 bg-blue-100",
               },
               {
                 icon: <Zap className="w-5 h-5" />,
-                title: "AI-Powered Routing",
-                desc: "Intelligent classification and routing ensures issues reach the right department instantly.",
+                 title: "CCTV-Based Monitoring",
+                desc: "AI analyzes government CCTV feeds to detect traffic obstructions, flooding, and other civic issues in real time.",
                 color: "text-purple-600 bg-purple-100",
               },
               {
                 icon: <MapPin className="w-5 h-5" />,
-                title: "GPS-Tagged Reports",
-                desc: "Precise geotagging with interactive maps means no issue goes unnoticed or unfound.",
-                color: "text-red-600 bg-red-100",
+                  title: "AI-Powered Issue Detection",
+                 desc: "AI automatically identifies and classifies civic issues from citizen reports, CCTV footage, and satellite imagery.",
+              color: "text-red-600 bg-red-100",
               },
               {
                 icon: <BarChart3 className="w-5 h-5" />,
-                title: "Real-Time Analytics",
-                desc: "Live dashboards for administrators and officers to monitor resolution rates and performance.",
-                color: "text-emerald-600 bg-emerald-100",
+                title: "Smart Prioritization",
+  desc: "AI evaluates issue severity and impact to prioritize critical civic problems for faster action.",
+  color: "text-emerald-600 bg-emerald-100",
               },
               {
                 icon: <Shield className="w-5 h-5" />,
-                title: "Secure & Accountable",
-                desc: "Complete audit trails, role-based access, and encrypted communications ensure data security.",
-                color: "text-orange-600 bg-orange-100",
+                title: "Automatic Department Routing",
+  desc: "Detected civic issues are automatically routed to the appropriate government department for faster resolution.",
+  color: "text-orange-600 bg-orange-100",
               },
               {
                 icon: <TrendingUp className="w-5 h-5" />,
-                title: "Measurable Impact",
-                desc: "Track resolution times, officer performance, and community satisfaction with real data.",
-                color: "text-teal-600 bg-teal-100",
+                 title: "AI Before/After Verification",
+  desc: "AI compares before and after images to verify whether a reported civic issue has actually been resolved.",
+  color: "text-teal-600 bg-teal-100",
               },
             ].map((feature, idx) => (
               <Card key={idx} className="p-6 hover:shadow-lg transition-all border hover:border-primary/10 group">

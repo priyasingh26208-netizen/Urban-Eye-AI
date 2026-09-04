@@ -521,54 +521,77 @@ const Landing = () => {
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: <Eye className="w-5 h-5" />,
-                 title: "Satellite Image Analysis",
-                desc: "AI analyzes satellite imagery to detect damaged roads, waterlogging, and infrastructure degradation—even when no citizen report exists.",
-               color: "text-blue-600 bg-blue-100",
-              },
-              {
-                icon: <Zap className="w-5 h-5" />,
-                 title: "CCTV-Based Monitoring",
-                desc: "AI analyzes government CCTV feeds to detect traffic obstructions, flooding, and other civic issues in real time.",
-                color: "text-purple-600 bg-purple-100",
-              },
-              {
-                icon: <MapPin className="w-5 h-5" />,
-                  title: "AI-Powered Issue Detection",
-                 desc: "AI automatically identifies and classifies civic issues from citizen reports, CCTV footage, and satellite imagery.",
-              color: "text-red-600 bg-red-100",
-              },
-              {
-                icon: <BarChart3 className="w-5 h-5" />,
-                title: "Smart Prioritization",
-  desc: "AI evaluates issue severity and impact to prioritize critical civic problems for faster action.",
-  color: "text-emerald-600 bg-emerald-100",
-              },
-              {
-                icon: <Shield className="w-5 h-5" />,
-                title: "Automatic Department Routing",
-  desc: "Detected civic issues are automatically routed to the appropriate government department for faster resolution.",
-  color: "text-orange-600 bg-orange-100",
-              },
-              {
-                icon: <TrendingUp className="w-5 h-5" />,
-                 title: "AI Before/After Verification",
-  desc: "AI compares before and after images to verify whether a reported civic issue has actually been resolved.",
-  color: "text-teal-600 bg-teal-100",
-              },
-            ].map((feature, idx) => (
-              <Card key={idx} className="p-6 hover:shadow-lg transition-all border hover:border-primary/10 group">
-                <div className={`w-10 h-10 rounded-xl ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                  {feature.icon}
-                </div>
-                <h4 className="text-base font-bold text-foreground mb-2">{feature.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed">{feature.desc}</p>
-              </Card>
-            ))}
-          </div>
+       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+  {[
+    {
+      icon: <Eye className="w-5 h-5" />,
+      title: "Satellite Image Analysis",
+      desc: "AI analyzes satellite imagery to detect damaged roads, waterlogging, and infrastructure degradation even before complaints are filed.",
+      color: "text-blue-600 bg-blue-100",
+    },
+    {
+      icon: <Zap className="w-5 h-5" />,
+      title: "CCTV-Based Monitoring",
+      desc: "Government CCTV feeds are continuously analyzed to identify traffic obstructions, flooding, and other civic issues in real time.",
+      color: "text-purple-600 bg-purple-100",
+    },
+    {
+      icon: <MapPin className="w-5 h-5" />,
+      title: "AI Image-Based Issue Detection",
+      desc: "Citizen-uploaded photos are analyzed to detect potholes, garbage accumulation, water leakage, damaged roads, and other civic issues.",
+      color: "text-red-600 bg-red-100",
+    },
+     {
+      icon: <Shield className="w-5 h-5" />,
+      title: "Automatic Department Routing",
+      desc: "Detected issues are automatically assigned to the appropriate department and officers for faster action.",
+      color: "text-cyan-600 bg-cyan-100",
+    },
+    {
+      icon: <CheckCircle2 className="w-5 h-5" />,
+      title: "AI Resolution Verification",
+      desc: "AI compares before-and-after images to verify whether a reported civic issue has actually been resolved.",
+      color: "text-teal-600 bg-teal-100",
+    },
+    {
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: "AI Civic Hotspot Prediction",
+      desc: "Predicts future high-risk zones using historical complaints, location patterns, infrastructure conditions, and environmental data.",
+      color: "text-orange-600 bg-orange-100",
+    },
+    {
+      icon: <BarChart3 className="w-5 h-5" />,
+      title: "UrbanEye Civic Health Score",
+      desc: "Generates area-wise civic health scores based on roads, drainage, garbage management, water supply, and streetlight conditions.",
+      color: "text-green-600 bg-green-100",
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      title: "Citizen Rewards & Badges",
+      desc: "Citizens earn Civic Points, badges, and contributor rankings for actively helping improve their communities.",
+      color: "text-amber-600 bg-amber-100",
+    },
+  ].map((feature, idx) => (
+    <Card
+      key={idx}
+      className="p-6 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border hover:border-primary/20 group"
+    >
+      <div
+        className={`w-12 h-12 rounded-xl ${feature.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}
+      >
+        {feature.icon}
+      </div>
+
+      <h4 className="text-lg font-bold text-foreground mb-2">
+        {feature.title}
+      </h4>
+
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {feature.desc}
+      </p>
+    </Card>
+  ))}
+</div> 
         </section>
 
         {/* ─── Footer ─────────────────────────────────────────── */}
@@ -578,7 +601,9 @@ const Landing = () => {
               {/* Brand */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  
+                 <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-sm">
+    <span className="text-white font-bold text-lg">UE</span>
+  </div>
                   <div>
                     <h3 className="font-bold text-lg text-foreground">{APP_CONFIG.appName}</h3>
                     <p className="text-xs text-muted-foreground">Report &middot; Track &middot; Resolve</p>

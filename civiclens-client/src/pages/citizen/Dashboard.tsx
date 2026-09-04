@@ -11,6 +11,7 @@ import { showToast } from "@/lib/utils/toast";
 import { CitizenHeader } from "@/components/layout/CitizenHeader";
 import { useConnectionStatus } from "@/hooks/useConnectionStatus";
 import { logger } from "@/lib/logger";
+import UrbanEyeAIAssistant from "@/components/UrbanEyeAIAssistant";
 
 interface DashboardStats {
   total: number;
@@ -702,6 +703,8 @@ const CitizenDashboard = () => {
           </div>
         </div>
       </div>
+       {/* AI Voice Assistant */}
+      <UrbanEyeAIAssistant />
     </div>
   );
 };

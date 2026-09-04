@@ -13,6 +13,7 @@ import { logger } from "@/lib/logger";
 import { useAuth } from "@/contexts/AuthContext";
 import { getDashboardPath } from "@/utils/authHelpers";
 import { APP_CONFIG } from "@/config/appConfig";
+import UrbanEyeAIAssistant from "@/components/UrbanEyeAIAssistant1";
 
 interface Stats {
   total_reports: number;
@@ -123,9 +124,9 @@ const Landing = () => {
           <div className="container mx-auto px-4 py-3">
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md shadow-primary/20">
-                  <MapPin className="w-5 h-5 text-primary-foreground" />
-                </div>
+              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-md shadow-primary/20">
+  <span className="text-white font-bold text-lg">UE</span>
+</div>
                 <div>
                   <h1 className="text-lg font-bold text-foreground tracking-tight">{APP_CONFIG.appName}</h1>
                   <p className="text-[11px] text-muted-foreground font-medium leading-none">Detect &middot; Track &middot; Resolve</p>
@@ -557,8 +558,8 @@ const Landing = () => {
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-sm">
-                    <MapPin className="w-5 h-5 text-white" />
-                  </div>
+  <span className="text-white font-bold text-lg">UE</span>
+</div>
                   <div>
                     <h3 className="font-bold text-lg text-foreground">{APP_CONFIG.appName}</h3>
                     <p className="text-xs text-muted-foreground">Report &middot; Track &middot; Resolve</p>
@@ -669,6 +670,7 @@ const Landing = () => {
             </div>
           </div>
         </footer>
+        <UrbanEyeAIAssistant />
       </div>
     </>
   );

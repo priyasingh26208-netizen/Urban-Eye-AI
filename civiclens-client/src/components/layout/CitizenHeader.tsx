@@ -38,7 +38,7 @@ export const CitizenHeader = () => {
                 }
               }}
             >
-              <span className="text-lg font-bold text-primary-foreground">CL</span>
+              <span className="text-lg font-bold text-primary-foreground">UE</span>
             </div>
             <div>
               <h1 className="text-lg font-bold text-foreground">{APP_CONFIG.appName}</h1>

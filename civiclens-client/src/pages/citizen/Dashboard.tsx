@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useNavigate } from "react-router-dom";
-import { Plus, FileText, Clock, CheckCircle2, XCircle, Star, ArrowRight, Loader2, AlertCircle, RefreshCw, TrendingUp, Award, Activity, BarChart3, Users, Target } from "lucide-react";
+import { Plus, FileText, Clock, CheckCircle2, XCircle, Star, ArrowRight, Loader2, AlertCircle, RefreshCw, TrendingUp, Award, Activity, BarChart3, Users, Target, Bot } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import { reportsService, Report } from "@/services/reportsService";
 import { userService } from "@/services/userService";
@@ -406,6 +406,74 @@ const CitizenDashboard = () => {
               <p className="text-sm text-muted-foreground">Resolution Time</p>
             </div>
           </Card>
+
+<Card className="p-6 bg-gradient-to-br from-cyan-50 to-cyan-100 border-cyan-200 hover:shadow-lg transition-all">
+  <div className="flex items-center justify-between mb-2">
+    <Bot className="w-6 h-6 text-cyan-600" />
+    <Badge variant="outline">AI</Badge>
+  </div>
+
+  <p className="text-3xl font-bold">5</p>
+
+  <p className="text-sm text-muted-foreground">
+    AI Verified Resolutions
+  </p>
+
+  <p className="text-xs text-cyan-700 mt-2">
+    Reports verified using before & after image analysis
+  </p>
+</Card>
+
+
+<Card className="p-6 bg-gradient-to-br from-red-50 to-orange-100 border-red-200 hover:shadow-lg transition-all">
+  <div className="flex items-center justify-between mb-2">
+    <TrendingUp className="w-6 h-6 text-red-600" />
+    <Badge>AI Prediction</Badge>
+  </div>
+
+  <p className="text-3xl font-bold">10%</p>
+
+  <p className="text-sm text-muted-foreground">
+    Risk Level of Reported Area
+  </p>
+
+  <p className="text-xs mt-2 text-red-700">
+    AI predicts the likelihood of future civic issues
+    based on complaint history, severity, frequency
+    and infrastructure condition.
+  </p>
+</Card>
+
+<Card className="p-6 bg-gradient-to-br from-green-50 to-emerald-100 border-green-200 hover:shadow-lg transition-all">
+  <div className="flex items-center justify-between mb-2">
+    <Award className="w-6 h-6 text-green-600" />
+    <Badge>Area Score</Badge>
+  </div>
+
+  <p className="text-3xl font-bold">78/100</p>
+
+  <p className="text-sm text-muted-foreground">
+    Civic Health Index of Your Area
+  </p>
+
+  <p className="text-xs text-green-700 mt-2">
+    Based on road quality, cleanliness, drainage,
+    water supply and resolved complaints.
+  </p>
+</Card>
+
+<Card className="p-6 bg-gradient-to-br from-yellow-50 to-amber-100 border-yellow-200">
+  <div className="flex items-center justify-between mb-2">
+    <Star className="w-6 h-6 text-yellow-600" />
+    <Badge>Rewards</Badge>
+  </div>
+
+  <p className="text-3xl font-bold">50</p>
+
+  <p className="text-sm text-muted-foreground">
+    Civic Reward Points
+  </p>
+</Card>
         </div>
 
         {/* Quick Actions & Main Content */}

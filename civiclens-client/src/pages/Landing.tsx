@@ -224,56 +224,77 @@ const Landing = () => {
                 From AI-powered detection to department routing and resolution verification, UrbanEyeAI makes civic monitoring smarter and faster.
               </p>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+  {[
+    {
+      icon: <Send className="w-6 h-6" />,
+      step: "01",
+      title: "Multi-Source Detection",
+      desc: "Issues are detected through citizen reports, CCTV feeds, and satellite imagery.",
+      color: "text-blue-600 bg-blue-100",
+    },
+    {
+      icon: <Eye className="w-6 h-6" />,
+      step: "02",
+      title: "AI Image Analysis",
+      desc: "AI analyzes uploaded images and automatically detects potholes, garbage, water leakage, damaged roads, and other civic issues.",
+      color: "text-red-600 bg-red-100",
+    },
+    {
+      icon: <Shield className="w-6 h-6" />,
+      step: "05",
+      title: "Smart Routing & Action",
+      desc: "High-priority issues are automatically routed to the responsible department and assigned officers.",
+      color: "text-purple-600 bg-purple-100",
+    },
+     {
+      icon: <CheckCircle2 className="w-6 h-6" />,
+      step: "06",
+      title: "AI Resolution Verification",
+      desc: "AI compares before-and-after evidence to verify that the reported issue has actually been resolved.",
+      color: "text-emerald-600 bg-emerald-100",
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      step: "03",
+      title: "Hotspot Prediction",
+      desc: "AI predicts future high-risk zones using complaint history, location patterns, and infrastructure data.",
+      color: "text-orange-600 bg-orange-100",
+    },
+    {
+      icon: <BarChart3 className="w-6 h-6" />,
+      step: "04",
+      title: "Civic Health Scoring",
+      desc: "UrbanEyeAI generates area-wise Civic Health Scores based on roads, drainage, garbage, water supply, and streetlights.",
+      color: "text-green-600 bg-green-100",
+    },
+    
+   
+  ].map((item, idx) => (
+    <Card
+      key={idx}
+      className="p-6 text-center hover:shadow-xl hover:-translate-y-1 transition-all duration-300 border hover:border-primary/20"
+    >
+      <div
+        className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mx-auto mb-4`}
+      >
+        {item.icon}
+      </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-              {[
-                {
-                  icon: <Send className="w-6 h-6" />,
-                  step: "01",
-                   title: "Multi-Source Detection",
-                   desc: "Issues are detected through citizen reports, CCTV feeds, and satellite imagery.",
-                   color: "text-blue-600 bg-blue-100",
-                },
-                {
-                  icon: <Zap className="w-6 h-6" />,
-                  step: "02",
-                  title: "AI Detection & Classification",
-  desc: "AI identifies the issue, classifies its type, estimates severity, and determines its priority.",
-  color: "text-purple-600 bg-purple-100",
-                },
-                {
-                  icon: <Shield className="w-6 h-6" />,
-                  step: "03",
-                  title: "Smart Routing & Action",
-  desc: "High-priority issues are automatically routed to the responsible department and assigned officers.",
-  color: "text-emerald-600 bg-emerald-100",
-                },
-                {
-                  icon: <CheckCircle2 className="w-6 h-6" />,
-                  step: "04",
-                  title: "AI Resolution Verification",
-  desc: "AI compares before-and-after evidence to verify that the reported issue has actually been resolved.",
-  color: "text-amber-600 bg-amber-100",
-                },
-              ].map((item, idx) => (
-                <div key={idx} className="relative group">
-                  {/* Connector line (desktop only) */}
-                  {idx < 3 && (
-                    <div className="hidden md:block absolute top-10 left-[calc(50%+2rem)] w-[calc(100%-4rem)] h-[2px] bg-gradient-to-r from-border to-border/30 z-0" />
-                  )}
-                  <Card className="relative z-10 p-6 text-center hover:shadow-lg transition-all border-2 border-transparent hover:border-primary/10 bg-card h-full">
-                    <div className={`w-14 h-14 rounded-2xl ${item.color} flex items-center justify-center mx-auto mb-4`}>
-                      {item.icon}
-                    </div>
-                    <div className="text-xs font-bold text-muted-foreground mb-2 tracking-widest uppercase">
-                      Step {item.step}
-                    </div>
-                    <h4 className="text-lg font-bold text-foreground mb-2">{item.title}</h4>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{item.desc}</p>
-                  </Card>
-                </div>
-              ))}
-            </div>
+      <div className="text-xs font-bold text-muted-foreground mb-2 tracking-widest uppercase">
+        Step {item.step}
+      </div>
+
+      <h4 className="text-lg font-bold text-foreground mb-2">
+        {item.title}
+      </h4>
+
+      <p className="text-sm text-muted-foreground leading-relaxed">
+        {item.desc}
+      </p>
+    </Card>
+  ))}
+</div>
           </div>
         </section>
 
@@ -557,9 +578,7 @@ const Landing = () => {
               {/* Brand */}
               <div className="space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-sm">
-  <span className="text-white font-bold text-lg">UE</span>
-</div>
+                  
                   <div>
                     <h3 className="font-bold text-lg text-foreground">{APP_CONFIG.appName}</h3>
                     <p className="text-xs text-muted-foreground">Report &middot; Track &middot; Resolve</p>

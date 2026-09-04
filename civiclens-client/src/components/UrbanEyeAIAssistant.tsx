@@ -47,41 +47,41 @@ export default function UrbanEyeAIAssistant() {
         onClick={() => setOpen(true)}
         className="
           fixed bottom-5 right-5 z-50
-  w-32 min-h-[145px]
-  cursor-pointer
-  rounded-2xl
-  bg-gradient-to-b
-  from-violet-500
-  via-purple-600
-  to-fuchsia-700
-  text-white
-  p-3
-  shadow-xl
-  hover:scale-105
-  transition-all duration-300
+          w-32 min-h-[145px]
+          cursor-pointer
+          rounded-2xl
+          bg-gradient-to-b
+          from-emerald-400
+          via-green-500
+          to-emerald-700
+          text-white
+          p-3
+          shadow-xl
+          hover:scale-105
+          transition-all duration-300
         "
       >
         <div className="flex flex-col items-center text-center">
           {/* Bot Icon */}
           <div className="bg-white/20 p-2 rounded-full mb-2">
-            <Bot className="w-7 h-7" />
+            <Bot className="w-6 h-6" />
           </div>
 
-          <h3 className="font-bold text-base">
+          <h3 className="font-bold text-sm">
             UrbanEye AI
           </h3>
 
           {/* Mic Icon */}
-          <div className="my-3">
-            <Mic className="w-8 h-8" />
+          <div className="my-2">
+            <Mic className="w-6 h-6" />
           </div>
 
-          <p className="text-[11px] text-white/90 leading-relaxed">
+          <p className="text-[10px] text-white/90 leading-relaxed">
             Report issues using your voice
           </p>
 
           {/* Button */}
-          <div className="mt-3 w-full bg-white/20 rounded-full py-2 text-xs font-medium">
+          <div className="mt-2 w-full bg-white/20 rounded-full py-1.5 text-[10px] font-medium">
             Click to Start →
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function UrbanEyeAIAssistant() {
             </button>
 
             <div className="flex items-center gap-3 mb-6">
-              <Bot className="w-8 h-8 text-cyan-600" />
+              <Bot className="w-8 h-8 text-emerald-600" />
 
               <div>
                 <h2 className="text-xl font-bold">
@@ -124,13 +124,13 @@ export default function UrbanEyeAIAssistant() {
               className={`w-full rounded-lg py-3 mb-3 text-white font-medium ${
                 listening
                   ? "bg-red-500"
-                  : "bg-gradient-to-r from-cyan-500 to-blue-600"
+                  : "bg-gradient-to-r from-emerald-500 to-green-600"
               }`}
             >
               🎤 {listening ? "Listening..." : "Start Voice Reporting"}
             </button>
 
-            <button className="w-full rounded-lg py-3 bg-black text-white font-medium">
+            <button className="w-full rounded-lg py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-medium transition-all">
               Submit Report
             </button>
           </Card>
@@ -138,4 +138,4 @@ export default function UrbanEyeAIAssistant() {
       )}
     </>
   );
-}  
+}
